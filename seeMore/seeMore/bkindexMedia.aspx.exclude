@@ -1,0 +1,130 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage2.master" %>
+
+<script runat="server">
+
+</script>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="mycss" Runat="Server">
+    <link href="plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="mycontent" Runat="Server">
+
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">首頁</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">清單</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid" style="width:100%">
+                <div class="row" style="width:100%">
+                    <div class="col-12" style="width:100%">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">出版書籍管理</h4>
+                                <div class="table-responsive">
+                                    <asp:FormView ID="FormView1" runat="server" AllowPaging="True" DataKeyNames="MediaId" DataSourceID="SqlDataSource1">
+                                        <EditItemTemplate>
+                                            MediaId:
+                                            <asp:Label ID="MediaIdLabel1" runat="server" Text='<%# Eval("MediaId") %>' />
+                                            <br />
+                                            mediaImage:
+                                            <asp:TextBox ID="mediaImageTextBox" runat="server" Text='<%# Bind("mediaImage") %>' />
+                                            <br />
+                                            mediaText1:
+                                            <asp:TextBox ID="mediaText1TextBox" runat="server" Text='<%# Bind("mediaText1") %>' />
+                                            <br />
+                                            mediaText2:
+                                            <asp:TextBox ID="mediaText2TextBox" runat="server" Text='<%# Bind("mediaText2") %>' />
+                                            <br />
+                                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="更新" />
+                                            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="取消" />
+                                        </EditItemTemplate>
+                                        <InsertItemTemplate>
+                                            MediaId:
+                                            <asp:TextBox ID="MediaIdTextBox" runat="server" Text='<%# Bind("MediaId") %>' />
+                                            <br />
+                                            mediaImage:
+                                            <asp:TextBox ID="mediaImageTextBox" runat="server" Text='<%# Bind("mediaImage") %>' />
+                                            <br />
+                                            mediaText1:
+                                            <asp:TextBox ID="mediaText1TextBox" runat="server" Text='<%# Bind("mediaText1") %>' />
+                                            <br />
+                                            mediaText2:
+                                            <asp:TextBox ID="mediaText2TextBox" runat="server" Text='<%# Bind("mediaText2") %>' />
+                                            <br />
+                                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="插入" />
+                                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="取消" />
+                                        </InsertItemTemplate>
+                                        <ItemTemplate>
+                                            MediaId:
+                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("mediaImage", "~/Frontdesk/images/realimg/媒體/{0}") %>' />
+                                            <asp:Label ID="MediaIdLabel" runat="server" Text='<%# Eval("MediaId") %>' />
+                                            <br />
+                                            mediaImage:
+                                            <asp:Label ID="mediaImageLabel" runat="server" Text='<%# Bind("mediaImage") %>' />
+                                            <br />
+                                            mediaText1:
+                                            <asp:Label ID="mediaText1Label" runat="server" Text='<%# Bind("mediaText1") %>' />
+                                            <br />
+                                            mediaText2:
+                                            <asp:Label ID="mediaText2Label" runat="server" Text='<%# Bind("mediaText2") %>' />
+                                            <br />
+                                            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="編輯" />
+                                            &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="刪除" />
+                                            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="新增" />
+                                        </ItemTemplate>
+                                    </asp:FormView>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=Ayo;Integrated Security=True" DeleteCommand="DELETE FROM [Media] WHERE [MediaId] = @MediaId" InsertCommand="INSERT INTO [Media] ([MediaId], [mediaImage], [mediaText1], [mediaText2]) VALUES (@MediaId, @mediaImage, @mediaText1, @mediaText2)" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Media]" UpdateCommand="UPDATE [Media] SET [mediaImage] = @mediaImage, [mediaText1] = @mediaText1, [mediaText2] = @mediaText2 WHERE [MediaId] = @MediaId">
+                                        <DeleteParameters>
+                                            <asp:Parameter Name="MediaId" Type="Int32" />
+                                        </DeleteParameters>
+                                        <InsertParameters>
+                                            <asp:Parameter Name="MediaId" Type="Int32" />
+                                            <asp:Parameter Name="mediaImage" Type="String" />
+                                            <asp:Parameter Name="mediaText1" Type="String" />
+                                            <asp:Parameter Name="mediaText2" Type="String" />
+                                        </InsertParameters>
+                                        <UpdateParameters>
+                                            <asp:Parameter Name="mediaImage" Type="String" />
+                                            <asp:Parameter Name="mediaText1" Type="String" />
+                                            <asp:Parameter Name="mediaText2" Type="String" />
+                                            <asp:Parameter Name="MediaId" Type="Int32" />
+                                        </UpdateParameters>
+                                    </asp:SqlDataSource>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="myjavascript" Runat="Server">
+    <script src="plugins/common/common.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/gleek.js"></script>
+    <script src="js/styleSwitcher.js"></script>
+    <script src="plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
+
+
+
+</asp:Content>
+

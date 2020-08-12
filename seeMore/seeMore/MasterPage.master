@@ -1,0 +1,170 @@
+﻿<%@ Master Language="C#" %>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>AYAO &mdash; PARTNERS DESIGN CO. </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="html, css, javascript, jquery">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="Frontdesk/css/vendor/icomoon/style.css">
+    <link rel="stylesheet" href="Frontdesk/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" href="Frontdesk/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="Frontdesk/css/vendor/aos.css">
+    <link rel="stylesheet" href="Frontdesk/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="Frontdesk/css/vendor/jquery.fancybox.min.css">
+
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="Frontdesk/css/style.css">
+    <asp:ContentPlaceHolder ID="mycss" runat="server"></asp:ContentPlaceHolder>
+
+</head>
+<body data-spy="scroll" data-target=".site-nav-target" data-offset="200">
+    <form id="form1" runat="server">
+    <nav class="unslate_co--site-mobile-menu">
+        <div class="close-wrap d-flex">
+            <a href="#" class="d-flex ml-auto js-menu-toggle">
+                <span class="close-label">Close</span>
+                <div class="close-times">
+                    <span class="bar1"></span>
+                    <span class="bar2"></span>
+                </div>
+            </a>
+        </div>
+        <div class="site-mobile-inner"></div>
+    </nav>
+
+
+    <div class="unslate_co--site-wrap">
+
+        <div class="unslate_co--site-inner">
+
+            <div class="lines-wrap">
+                <div class="lines-inner">
+                    <div class="lines"></div>
+                </div>
+            </div>
+            <!-- END lines -->
+
+            <nav class="unslate_co--site-nav site-nav-target">
+
+                <div class="container">
+
+                    <div class="row align-items-center justify-content-between text-left">
+                        <div class="col-md-5 text-right">
+                            <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
+
+
+                            </ul>
+                        </div>
+                        <div class="site-logo pos-absolute">
+                            <a href="index.aspx" class="unslate_co--site-logo">AYAO<span>.</span></a>
+                        </div>
+                        <div class="col-md-5 text-right text-lg-left">
+                            <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
+                                <li class="has-children">
+                                    <a href="Projects.aspx" class="nav-link">作品集</a>
+                                    <ul class="dropdown" id="pass99">
+                                      
+                                    </ul>
+
+                                <li><a href="About US.aspx" class="nav-link">關於AYO</a></li>
+                                <li><a href="Media.aspx" class="nav-link">出版書籍</a></li>                               
+                                 <li><a href="About US.aspx" class="nav-link">聯絡我們</a></li>
+                                <li><a href="bkindex1.aspx" class="nav-link"></a></li>
+                               
+                            </ul>
+
+                            <ul class="site-nav-ul-none-onepage text-right d-inline-block d-lg-none">
+                                <li><a href="#" class="js-menu-toggle">Menu</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+            <!-- END nav -->
+            <asp:ContentPlaceHolder ID="mycontent" runat="server"></asp:ContentPlaceHolder>
+
+            <footer class="unslate_co--footer unslate_co--section">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-7">
+
+                            <div class="footer-site-logo"><a href="#">AYAO<span>.</span></a></div>
+
+                            <ul class="footer-site-social">
+                                <li><a href="https://www.facebook.com/ayaodesign/">Facebook</a></li>
+                                
+                            </ul>
+
+                            <p class="site-copyright">
+
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+               
+                                <script>
+                                    document.write(new Date().getFullYear());
+                </script>
+                                All rights reserved | This template is made with <i class="icon-heart"
+                                    aria-hidden="true"></i>by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+        </div>
+        <!-- Loader -->
+        <div id="unslate_co--overlayer"></div>
+        <div class="site-loader-wrap">
+            <div class="site-loader"></div>
+        </div>
+
+        <script src="Frontdesk/js/scripts-dist.js"></script>
+        <script src="Frontdesk/js/main.js"></script>
+
+        <asp:ContentPlaceHolder ID="myjavascript" runat="server"></asp:ContentPlaceHolder>
+                <script>
+
+        $(function () {
+
+            $.ajax({
+                type: 'POST',
+                url: 'WebService.asmx/ProjectsAll',
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+
+                    $(data.d).each(function (index, item) {
+
+                        $("#pass99").append(
+                       
+                       `<li>
+                          <a href="single-Project.aspx?id=${item.ProjectId}">${item.ProjectName3}</a>
+                       </li>`);
+                       
+                    })
+                },
+                error: function (x) {
+                    alert("error");
+                }
+            });
+
+        });
+
+    </script>
+
+
+    </div>
+        </form>
+</body>
+</html>

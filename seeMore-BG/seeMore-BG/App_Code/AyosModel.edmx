@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AyoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeTitles" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeResume01" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume02" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume03" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume04" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume05" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume06" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume07" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume08" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume09" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume10" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume11" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume12" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume13" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume14" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume15" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume16" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume17" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume18" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume19" Type="nvarchar(max)" />
+          <Property Name="EmployeeResume20" Type="nvarchar(max)" />
+          <Property Name="EmployeeEmail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Index">
+          <Key>
+            <PropertyRef Name="IndexId" />
+          </Key>
+          <Property Name="IndexId" Type="int" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="projectImageIndex" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndexCompanyTitle01" Type="nvarchar(max)" />
+          <Property Name="IndexCompanyTitle02" Type="nvarchar(max)" />
+          <Property Name="IndexDesignsText" Type="nvarchar(max)" />
+          <Property Name="IndexPrincipalName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndexPrincipalImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndexCompantEmail" Type="nvarchar(max)" />
+          <Property Name="IndexCompantPhome" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndexCompantAddress" Type="nvarchar(max)" />
+          <Property Name="IndexSocialmediaName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndexSocialmediaUrl" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="MediaId" />
+          </Key>
+          <Property Name="MediaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mediaImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="mediaText1" Type="nvarchar" MaxLength="50" />
+          <Property Name="mediaText2" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projectImageIndex" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectName1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectName2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectName3" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectTitle01" Type="nvarchar(max)" />
+          <Property Name="ProjectTitle02" Type="nvarchar(max)" />
+          <Property Name="ProjectTitle03" Type="nvarchar(max)" />
+          <Property Name="ProjectTitle04" Type="nvarchar(max)" />
+          <Property Name="ProjectText01" Type="nvarchar(max)" />
+          <Property Name="ProjectText02" Type="nvarchar(max)" />
+          <Property Name="ProjectText03" Type="nvarchar(max)" />
+          <Property Name="ProjectText04" Type="nvarchar(max)" />
+          <Property Name="ProjectDetal01" Type="nvarchar(max)" />
+          <Property Name="ProjectDetal02" Type="nvarchar(max)" />
+          <Property Name="ProjectDetal03" Type="nvarchar(max)" />
+          <Property Name="principalName" Type="nvarchar" MaxLength="50" />
+          <Property Name="principalImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="AyoModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Index" EntityType="Self.Index" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Media" EntityType="Self.Media" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AyoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTitles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume01" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume02" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume03" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume04" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume05" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume06" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume07" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume08" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume09" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume11" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume12" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume13" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume14" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume15" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume16" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume17" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume18" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume19" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeResume20" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Index">
+          <Key>
+            <PropertyRef Name="IndexId" />
+          </Key>
+          <Property Name="IndexId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="projectImageIndex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndexCompanyTitle01" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IndexCompanyTitle02" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IndexDesignsText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IndexPrincipalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndexPrincipalImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndexCompantEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IndexCompantPhome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndexCompantAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IndexSocialmediaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndexSocialmediaUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Medium">
+          <Key>
+            <PropertyRef Name="MediaId" />
+          </Key>
+          <Property Name="MediaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mediaImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mediaText1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mediaText2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projectImageIndex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectTitle01" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectTitle02" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectTitle03" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectTitle04" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectText01" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectText02" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectText03" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectText04" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectDetal01" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectDetal02" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectDetal03" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="principalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="principalImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="AyoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Indices" EntityType="Self.Index" />
+          <EntitySet Name="Media" EntityType="Self.Medium" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AyoModelStoreContainer" CdmEntityContainer="AyoEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="AyoModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeImage" ColumnName="EmployeeImage" />
+                <ScalarProperty Name="EmployeeTitles" ColumnName="EmployeeTitles" />
+                <ScalarProperty Name="EmployeeResume01" ColumnName="EmployeeResume01" />
+                <ScalarProperty Name="EmployeeResume02" ColumnName="EmployeeResume02" />
+                <ScalarProperty Name="EmployeeResume03" ColumnName="EmployeeResume03" />
+                <ScalarProperty Name="EmployeeResume04" ColumnName="EmployeeResume04" />
+                <ScalarProperty Name="EmployeeResume05" ColumnName="EmployeeResume05" />
+                <ScalarProperty Name="EmployeeResume06" ColumnName="EmployeeResume06" />
+                <ScalarProperty Name="EmployeeResume07" ColumnName="EmployeeResume07" />
+                <ScalarProperty Name="EmployeeResume08" ColumnName="EmployeeResume08" />
+                <ScalarProperty Name="EmployeeResume09" ColumnName="EmployeeResume09" />
+                <ScalarProperty Name="EmployeeResume10" ColumnName="EmployeeResume10" />
+                <ScalarProperty Name="EmployeeResume11" ColumnName="EmployeeResume11" />
+                <ScalarProperty Name="EmployeeResume12" ColumnName="EmployeeResume12" />
+                <ScalarProperty Name="EmployeeResume13" ColumnName="EmployeeResume13" />
+                <ScalarProperty Name="EmployeeResume14" ColumnName="EmployeeResume14" />
+                <ScalarProperty Name="EmployeeResume15" ColumnName="EmployeeResume15" />
+                <ScalarProperty Name="EmployeeResume16" ColumnName="EmployeeResume16" />
+                <ScalarProperty Name="EmployeeResume17" ColumnName="EmployeeResume17" />
+                <ScalarProperty Name="EmployeeResume18" ColumnName="EmployeeResume18" />
+                <ScalarProperty Name="EmployeeResume19" ColumnName="EmployeeResume19" />
+                <ScalarProperty Name="EmployeeResume20" ColumnName="EmployeeResume20" />
+                <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Indices">
+            <EntityTypeMapping TypeName="AyoModel.Index">
+              <MappingFragment StoreEntitySet="Index">
+                <ScalarProperty Name="IndexId" ColumnName="IndexId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="projectImageIndex" ColumnName="projectImageIndex" />
+                <ScalarProperty Name="IndexCompanyTitle01" ColumnName="IndexCompanyTitle01" />
+                <ScalarProperty Name="IndexCompanyTitle02" ColumnName="IndexCompanyTitle02" />
+                <ScalarProperty Name="IndexDesignsText" ColumnName="IndexDesignsText" />
+                <ScalarProperty Name="IndexPrincipalName" ColumnName="IndexPrincipalName" />
+                <ScalarProperty Name="IndexPrincipalImage" ColumnName="IndexPrincipalImage" />
+                <ScalarProperty Name="IndexCompantEmail" ColumnName="IndexCompantEmail" />
+                <ScalarProperty Name="IndexCompantPhome" ColumnName="IndexCompantPhome" />
+                <ScalarProperty Name="IndexCompantAddress" ColumnName="IndexCompantAddress" />
+                <ScalarProperty Name="IndexSocialmediaName" ColumnName="IndexSocialmediaName" />
+                <ScalarProperty Name="IndexSocialmediaUrl" ColumnName="IndexSocialmediaUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Media">
+            <EntityTypeMapping TypeName="AyoModel.Medium">
+              <MappingFragment StoreEntitySet="Media">
+                <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+                <ScalarProperty Name="mediaImage" ColumnName="mediaImage" />
+                <ScalarProperty Name="mediaText1" ColumnName="mediaText1" />
+                <ScalarProperty Name="mediaText2" ColumnName="mediaText2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="AyoModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="projectImageIndex" ColumnName="projectImageIndex" />
+                <ScalarProperty Name="ProjectName1" ColumnName="ProjectName1" />
+                <ScalarProperty Name="ProjectName2" ColumnName="ProjectName2" />
+                <ScalarProperty Name="ProjectName3" ColumnName="ProjectName3" />
+                <ScalarProperty Name="ProjectTitle01" ColumnName="ProjectTitle01" />
+                <ScalarProperty Name="ProjectTitle02" ColumnName="ProjectTitle02" />
+                <ScalarProperty Name="ProjectTitle03" ColumnName="ProjectTitle03" />
+                <ScalarProperty Name="ProjectTitle04" ColumnName="ProjectTitle04" />
+                <ScalarProperty Name="ProjectText01" ColumnName="ProjectText01" />
+                <ScalarProperty Name="ProjectText02" ColumnName="ProjectText02" />
+                <ScalarProperty Name="ProjectText03" ColumnName="ProjectText03" />
+                <ScalarProperty Name="ProjectText04" ColumnName="ProjectText04" />
+                <ScalarProperty Name="ProjectDetal01" ColumnName="ProjectDetal01" />
+                <ScalarProperty Name="ProjectDetal02" ColumnName="ProjectDetal02" />
+                <ScalarProperty Name="ProjectDetal03" ColumnName="ProjectDetal03" />
+                <ScalarProperty Name="principalName" ColumnName="principalName" />
+                <ScalarProperty Name="principalImage" ColumnName="principalImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AyoModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

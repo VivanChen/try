@@ -1,0 +1,204 @@
+﻿<%@ Master Language="C#" %>
+
+
+<!DOCTYPE html>
+
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Page.IsPostBack == false)
+        {
+            int a = (int)Session["key"];
+            
+            //FormsIdentity id2 = (FormsIdentity)HttpContext.Current.User.Identity;
+            //FormsAuthenticationTicket authenticationTicket = id2.Ticket;
+
+
+
+            User u = UserLoginUtility.GetAllUserById1(a);
+            Label1.Text = $"歡迎:{u.UserName}";
+            Image1.ImageUrl = $"~/Frontdesk/images/realimg/公司相關/{u.UserImage}";
+
+
+        }
+
+    }
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        FormsAuthentication.SignOut();
+        Label1.Text = "";
+        Response.Redirect("~/login.aspx");
+    }
+</script>
+
+<html>
+<head runat="server">
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AYAO-管理系統</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link href="plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <link href="css/style.css" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="mycss" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <!--*******************
+        Preloader start
+    ********************-->
+        <div id="preloader">
+            <div class="loader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+                </svg>
+            </div>
+        </div>
+        <!--*******************
+        Preloader end
+    ********************-->
+
+
+        <!--**********************************
+        Main wrapper start
+    ***********************************-->
+        <div id="main-wrapper">
+
+            <!--**********************************
+            Nav header start
+        ***********************************-->
+            
+                <div class="brand-logo">
+                    <a href="Bk_index.aspx">
+                        <asp:Image ID="Image1" runat="server" style="width:80px"  />
+                        <asp:Label ID="Label1" runat="server" Text="" CssClass="alert-info"></asp:Label>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary" OnClick="LinkButton1_Click">登出</asp:LinkButton>
+                    </a>
+                </div>
+            
+            <!--**********************************
+            Nav header end
+        ***********************************-->
+
+            <!--**********************************
+            Header start
+        ***********************************-->
+            <div class="header">
+                <div class="header-content clearfix">
+
+                    <div class="nav-control">
+                        <div class="hamburger">
+                          
+                        </div>
+                    </div>
+                   
+                    <div class="header-right">
+                        <ul class="clearfix">
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+            <!--**********************************
+            Sidebar start
+        ***********************************-->
+            <div class="nk-sidebar">
+                <div class="nk-nav-scroll">
+                    <ul class="metismenu" id="menu">
+                        <li class="nav-label">AYAO</li>
+                        <li>
+                            <a class="has-arrow" href="./bkProjectList.aspx" aria-expanded="false">
+                                <i class="icon-speedometer menu-icon"></i><span class="nav-text">作品集管理</span>
+                            </a>
+                            
+                        </li>
+                        <li class="mega-menu mega-menu-sm">
+                            <a class="has-arrow" href="./bkUserList.aspx" aria-expanded="false">
+                                <i class="icon-speedometer menu-icon"></i><span class="nav-text">員工管理</span>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="./bkEmployeeList.aspx" aria-expanded="false">
+                                <i class="icon-speedometer menu-icon"></i><span class="nav-text">員工履歷管理</span>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="./bkMediaList.aspx" aria-expanded="false">
+                                <i class="icon-speedometer menu-icon"></i><span class="nav-text">出版書籍管理</span>
+                            </a>
+                            
+                        </li>
+                         <li>
+                            <a class="has-arrow" href="./bkContactList.aspx" aria-expanded="false">
+                                <i class="icon-speedometer menu-icon"></i><span class="nav-text">留言板管理</span>
+                            </a>
+                            
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+       <asp:ContentPlaceHolder ID="mycontent" runat="server">
+
+       </asp:ContentPlaceHolder>
+            <!--**********************************
+            Footer start
+        ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+                </div>
+            </div>
+            <!--**********************************
+            Footer end
+        ***********************************-->
+        </div>
+        <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+        <!--**********************************
+        Scripts
+    ***********************************-->
+        <script src="plugins/common/common.min.js"></script>
+        <script src="js/custom.min.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/gleek.js"></script>
+        <script src="js/styleSwitcher.js"></script>
+
+        <script src="plugins/chart.js/Chart.bundle.min.js"></script>
+
+        <script src="plugins/circle-progress/circle-progress.min.js"></script>
+
+        <script src="plugins/d3v3/index.js"></script>
+        <script src="plugins/topojson/topojson.min.js"></script>
+        <script src="plugins/datamaps/datamaps.world.min.js"></script>
+
+        <script src="plugins/raphael/raphael.min.js"></script>
+        <script src="plugins/morris/morris.min.js"></script>
+
+        <script src="plugins/moment/moment.min.js"></script>
+        <script src="plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+
+        <script src="plugins/chartist/js/chartist.min.js"></script>
+        <script src="plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+        <script src="js/dashboard/dashboard-1.js"></script>
+        <asp:ContentPlaceHolder ID="myjavascript" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
